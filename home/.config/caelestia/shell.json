@@ -42,6 +42,12 @@
     "border": {
         "thickness": 2
     },
+    "general": {
+        "idle": {
+            "timeouts": [
+            ]
+        }
+    },
     "services": {
         "useTwelveHourClock": false
     }
