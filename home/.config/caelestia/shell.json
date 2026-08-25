@@ -1,0 +1,48 @@
+{
+    "bar": {
+        "clock": {
+            "showDate": true,
+            "showIcon": false
+        },
+        "entries": [
+            {
+                "id": "logo"
+            },
+            {
+                "id": "workspaces"
+            },
+            {
+                "id": "spacer"
+            },
+            {
+                "enabled": false,
+                "id": "activeWindow"
+            },
+            {
+                "id": "spacer"
+            },
+            {
+                "id": "tray"
+            },
+            {
+                "id": "statusIcons"
+            },
+            {
+                "id": "clock"
+            },
+            {
+                "enabled": false,
+                "id": "power"
+            }
+        ],
+        "workspaces": {
+            "perMonitorWorkspaces": true
+        }
+    },
+    "border": {
+        "thickness": 2
+    },
+    "services": {
+        "useTwelveHourClock": false
+    }
+}
