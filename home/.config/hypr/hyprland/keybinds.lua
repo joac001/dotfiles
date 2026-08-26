@@ -98,6 +98,14 @@ create_bind(
     "Mostrar esta lista de atajos de teclado"
 )
 
+-- Toggle focus-follows-mouse (input.lua sets follow_mouse = 0 by default)
+create_bind(
+    vars.kbToggleFollowMouse,
+    hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-follow-mouse.sh"),
+    nil,
+    "Alternar el foco de ventana al pasar el mouse"
+)
+
 -- Kill/restart
 create_bind("CTRL + SUPER + SHIFT + R", hl.dsp.exec_cmd("qs -c caelestia kill"), release, "Matar el shell de Caelestia")
 create_bind(

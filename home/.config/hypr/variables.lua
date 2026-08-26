@@ -142,6 +142,7 @@ return {
     kbRestoreLock              = "SUPER + ALT + L",
     kbSleep                    = "SUPER + SHIFT + L",
     kbCheatsheet               = "SUPER + F1",
+    kbToggleFollowMouse        = "SUPER + F2",
 
     -- Clipboard and emoji picker
     kbClipboard                = "SUPER + V",
