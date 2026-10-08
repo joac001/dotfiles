@@ -25,6 +25,9 @@ hl.on("hyprland.start", function()
     -- Forward bluetooth media commands to MPRIS
     hl.exec_cmd("mpris-proxy")
 
+    -- Auto enable/disable laptop panel based on external monitor presence
+    hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/auto-laptop-monitor.sh")
+
     -- Start shell
     hl.exec_cmd("caelestia shell -d")
 
