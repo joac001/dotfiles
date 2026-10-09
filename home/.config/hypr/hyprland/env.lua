@@ -1,5 +1,14 @@
 local vars = require("variables")
 
+-- NVIDIA (hybrid Intel/NVIDIA GPU)
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("__GL_VRR_ALLOWED", "0")
+hl.env("__GL_GSYNC_ALLOWED", "0")
+hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+hl.env("WLR_DRM_NO_ATOMIC", "1")
+
 -- Themes
 hl.env("QT_QPA_PLATFORMTHEME", "qtengine")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
