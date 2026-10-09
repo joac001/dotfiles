@@ -8,12 +8,12 @@ SOCK="$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"
 apply_state() {
     local externals
     externals=$(hyprctl monitors all -j | jq -r --arg panel "$PANEL" \
-        '[.[] | select(.name != $panel)] | length')
+        '[.[] | select(.name != $panel and .name != "FALLBACK")] | length')
 
     if [ "$externals" -gt 0 ]; then
-        hyprctl keyword monitor "$PANEL,disable" >/dev/null
+        hyprctl eval "hl.monitor({output=\"$PANEL\", disabled=true})" >/dev/null
     else
-        hyprctl keyword monitor "$PANEL,preferred,auto,1" >/dev/null
+        hyprctl eval "hl.monitor({output=\"$PANEL\", disabled=false, mode=\"preferred\", position=\"auto\", scale=1})" >/dev/null
     fi
 }
 
