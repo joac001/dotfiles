@@ -36,7 +36,7 @@ hl.animation({
 hl.monitor({
     output = "DP-6",
     disabled = false,
-    mode = "1920x1080@179.96Hz",
+    mode = "1920x1080@143.98Hz",
     position = "3500x1080",
     scale = 1,
     cm = "srgb",
@@ -44,7 +44,7 @@ hl.monitor({
 hl.monitor({
     output = "DP-7",
     disabled = false,
-    mode = "1920x1080@179.96Hz",
+    mode = "1920x1080@143.98Hz",
     position = "5460x1080",
     scale = 1,
     cm = "srgb",
