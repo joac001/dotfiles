@@ -26,7 +26,20 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("mpris-proxy")
 
     -- Auto enable/disable laptop panel based on external monitor presence
-    hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/auto-laptop-monitor.sh")
+    -- (only on machines that actually have an eDP panel, e.g. a laptop)
+    local has_edp = false
+    local drm = io.popen("ls /sys/class/drm 2>/dev/null")
+    if drm then
+        for line in drm:lines() do
+            if line:find("eDP") then
+                has_edp = true
+            end
+        end
+        drm:close()
+    end
+    if has_edp then
+        hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/auto-laptop-monitor.sh")
+    end
 
     -- Start shell
     hl.exec_cmd("caelestia shell -d")

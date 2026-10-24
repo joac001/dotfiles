@@ -12,6 +12,7 @@ python-hyprland-schema
 python-hyprland-socket
 python-hyprland-state
 python-materialyoucolor
+qt6-m3shapes-git
 qtengine
 quickshell-git
 slack-desktop

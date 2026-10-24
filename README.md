@@ -14,6 +14,7 @@ auto-generated (`fish_variables`, logs, `~/.config/monitors.xml`).
    rice depends on:
 
    ```sh
+   sudo pacman -S --needed - < packages/pacman.txt
    yay -S --needed - < packages/aur.txt
    ```
 
@@ -68,7 +69,8 @@ file (a new app's config), also re-run `./install.sh` so it gets symlinked in.
 ```
 dotfiles/
   install.sh          # symlinks home/ into $HOME
-  packages/aur.txt     # AUR packages this rice depends on (pacman -Qqm)
+  packages/aur.txt     # AUR/foreign packages (pacman -Qqm)
+  packages/pacman.txt  # native explicitly installed packages (pacman -Qqen)
   home/                # mirrors $HOME; everything here is what gets symlinked
     .bashrc .bash_profile .zshrc
     .config/

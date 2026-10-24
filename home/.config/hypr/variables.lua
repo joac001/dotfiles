@@ -118,8 +118,8 @@ return {
 
     -- Utilities
     kbScreenshot               = "Print",
-    kbScreenshotFreeze         = "SUPER + SHIFT + S",
-    kbScreenshotRegion         = "SUPER + SHIFT + ALT + S",
+    kbScreenshotFreeze         = "SUPER + SHIFT + ALT + S",
+    kbScreenshotRegion         = "SUPER + SHIFT + period",
     kbRecord                   = "CTRL + ALT + R",
     kbRecordSound              = "SUPER + ALT + R",
     kbRecordRegion             = "SUPER + SHIFT + ALT + R",
