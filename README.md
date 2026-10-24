@@ -70,7 +70,8 @@ file (a new app's config), also re-run `./install.sh` so it gets symlinked in.
 dotfiles/
   install.sh          # symlinks home/ into $HOME
   packages/aur.txt     # AUR/foreign packages (pacman -Qqm)
-  packages/pacman.txt  # native explicitly installed packages (pacman -Qqen)
+  packages/pacman.txt  # native apps/tools (pacman -Qqen minus base system)
+  packages/pacman-system.txt  # notebook-only base: cachyos-*, kernels, nvidia, gnome-shell. Do NOT install on other machines
   home/                # mirrors $HOME; everything here is what gets symlinked
     .bashrc .bash_profile .zshrc
     .config/
