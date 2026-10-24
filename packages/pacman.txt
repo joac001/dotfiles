@@ -141,7 +141,6 @@ perl
 pipewire
 pipewire-alsa
 pipewire-audio
-pipewire-jack
 pipewire-pulse
 pkgfile
 plocate
