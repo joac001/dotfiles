@@ -119,21 +119,17 @@ for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     create_bind(extend_keybind(vars.kbGoToWs, key), fn.wsaction("focus", "", i), nil, "Ir al workspace " .. i)
     create_bind(extend_keybind(vars.kbMoveWinToWs, key), fn.wsaction("move", "", i), nil, "Mover ventana al workspace " .. i)
-    create_bind(extend_keybind(vars.kbGoToWsGroup, key), fn.wsaction("focus", "group", i), nil, "Ir al grupo de workspaces " .. i)
+    -- Focusing another monitor's group is disabled; moving a window to a group stays as the way to send apps across monitors.
     create_bind(extend_keybind(vars.kbMoveWinToWsGroup, key), fn.wsaction("move", "group", i), nil, "Mover ventana al grupo de workspaces " .. i)
 end
 
--- Go to workspace -1/+1
-create_bind(vars.kbPrevWs, hl.dsp.focus({ workspace = "-1" }), repeating_unless_mouse, "Ir al workspace anterior")
-create_bind(vars.kbNextWs, hl.dsp.focus({ workspace = "+1" }), repeating_unless_mouse, "Ir al workspace siguiente")
+-- Go to workspace -1/+1, staying inside this monitor's 10 workspaces (10 wraps to 1)
+create_bind(vars.kbPrevWs, fn.wsstep("focus", -1), repeating_unless_mouse, "Ir al workspace anterior")
+create_bind(vars.kbNextWs, fn.wsstep("focus", 1), repeating_unless_mouse, "Ir al workspace siguiente")
 
--- Go to workspace group -1/+1
-create_bind(vars.kbPrevWsGroup, hl.dsp.focus({ workspace = "-10" }), repeating_unless_mouse, "Ir al grupo de workspaces anterior")
-create_bind(vars.kbNextWsGroup, hl.dsp.focus({ workspace = "+10" }), repeating_unless_mouse, "Ir al grupo de workspaces siguiente")
-
--- Move window to workspace -1/+1
-create_bind(vars.kbMoveWinToWsNext, hl.dsp.window.move({ workspace = "+1" }), repeating_unless_mouse, "Mover ventana al workspace siguiente")
-create_bind(vars.kbMoveWinToWsPrev, hl.dsp.window.move({ workspace = "-1" }), repeating_unless_mouse, "Mover ventana al workspace anterior")
+-- Move window to workspace -1/+1, same wrapping
+create_bind(vars.kbMoveWinToWsNext, fn.wsstep("move", 1), repeating_unless_mouse, "Mover ventana al workspace siguiente")
+create_bind(vars.kbMoveWinToWsPrev, fn.wsstep("move", -1), repeating_unless_mouse, "Mover ventana al workspace anterior")
 
 -- Move window to/from special workspace
 create_bind(vars.kbMoveWinToWsSpecial, hl.dsp.window.move({ workspace = "special:special" }), nil, "Mover ventana al workspace especial")

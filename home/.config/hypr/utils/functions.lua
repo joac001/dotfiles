@@ -16,6 +16,23 @@ local function wsaction(action, range, i)
     end
 end
 
+-- Step `delta` workspaces inside the active workspace's group of 10, wrapping 10 -> 1.
+local function wsstep(action, delta)
+    return function()
+        local activews = hl.get_active_workspace()
+        if not activews or activews.id < 1 then return end
+
+        local id = activews.id
+        local z  = math.floor((id - 1) / 10) * 10 + ((id - 1 + delta) % 10) + 1
+
+        if action == "move" then
+            return hl.dispatch(hl.dsp.window.move({ workspace = z }))
+        else
+            return hl.dispatch(hl.dsp.focus({ workspace = z }))
+        end
+    end
+end
+
 -- Nearest monitor in `dir` ("left"/"right"/"up"/"down") from the active one, by position.
 local function monitor_neighbour(dir)
     local active = hl.get_active_monitor()
@@ -419,6 +436,7 @@ return {
     resize_by_screen     = resize_by_screen,
     resize_active_window = resize_active_window,
     wsaction             = wsaction,
+    wsstep               = wsstep,
     directional_focus    = directional_focus,
     directional_move     = directional_move,
     move_actions         = move_actions,
