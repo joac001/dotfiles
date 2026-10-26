@@ -58,6 +58,8 @@ hl.monitor({
     scale    = 1,
 })
 
+require("hyprland.monitors")
+
 -- Configs
 require("hyprland.env")
 require("hyprland.general")
