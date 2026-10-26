@@ -36,7 +36,8 @@
             }
         ],
         "workspaces": {
-            "perMonitorWorkspaces": true
+            "perMonitorWorkspaces": true,
+            "perMonitor": true
         }
     },
     "border": {
