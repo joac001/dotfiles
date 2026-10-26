@@ -60,5 +60,9 @@ socat -U - UNIX-CONNECT:"$SOCK" | while read -r line; do
             sleep 1
             fix_groups collisions
             ;;
+        configreloaded*)
+            sleep 1
+            fix_groups strict
+            ;;
     esac
 done
