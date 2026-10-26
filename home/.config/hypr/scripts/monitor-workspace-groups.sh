@@ -22,7 +22,7 @@ sorted_monitors() {
     [ -f "$ORDER_FILE" ] && order=$(jq -R 'select(length > 0)' "$ORDER_FILE" | jq -s .)
     hyprctl monitors all -j | jq --argjson order "$order" '
         [.[] | select(.name != "FALLBACK" and .disabled != true)]
-        | map(. as $m | .rank = (([range(0; $order | length)] | map(select($m.description | contains($order[.]))) | .[0]) // (1000 + $m.x)))
+        | map(. as $m | .rank = (([range(0; $order | length)] | map(. as $i | select($m.description | contains($order[$i]))) | .[0]) // (1000 + $m.x)))
         | sort_by(.rank)'
 }
 
