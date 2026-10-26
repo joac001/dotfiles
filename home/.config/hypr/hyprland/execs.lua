@@ -41,6 +41,9 @@ hl.on("hyprland.start", function()
         hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/auto-laptop-monitor.sh")
     end
 
+    -- One workspace group (1-10, 11-20, ...) per monitor, so monitors don't share workspaces
+    hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/monitor-workspace-groups.sh")
+
     -- Start shell
     hl.exec_cmd("caelestia shell -d")
 
