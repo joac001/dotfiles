@@ -58,8 +58,6 @@ hl.monitor({
     scale    = 1,
 })
 
-require("hyprland.monitors")
-
 -- Configs
 require("hyprland.env")
 require("hyprland.general")
@@ -79,3 +77,6 @@ require("hypr-user")
 
 -- HyprMod managed settings
 require("hyprland-gui")
+
+-- Desk monitor layout, after HyprMod so its per-connector rules don't override it
+require("hyprland.monitors")
