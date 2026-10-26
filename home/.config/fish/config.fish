@@ -1,3 +1,6 @@
+# User binaries (claude, etc.)
+fish_add_path -g $HOME/.local/bin
+
 if status is-interactive
     # Starship custom prompt
     command -v starship &> /dev/null && starship init fish | source
